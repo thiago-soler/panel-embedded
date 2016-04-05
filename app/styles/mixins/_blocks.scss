@@ -1,0 +1,50 @@
+@mixin flex-block-1() {
+    
+    display: flex;
+
+}
+
+@mixin flex-block-2($flex-grow: 0, $flex-shrink: 0, $flex-basis: 100%) {
+    
+    @include flex-block-1();
+    flex: $flex-grow $flex-shrink $flex-basis;
+    
+}
+
+@mixin flex-block-3() {
+    
+    @include flex-block-1();
+    @include flex-block-2();
+    
+    flex-wrap: wrap;
+    
+}
+
+@mixin fixed-block-1($width: auto, $height: auto, $top: auto, $left: auto, $right: auto, $bottom: auto) {
+
+	@if $width != auto {
+      width: $width;
+    }
+
+    @if $height != auto {
+      height: $height;
+    }
+  	
+  	position: fixed;
+
+  	@if $top != auto {
+      top: $top;
+    }
+
+    @if $left != auto {
+      left: $left;
+    }
+
+    @if $right != auto {
+      right: $right;
+    }
+
+    @if $bottom != auto {
+      bottom: $bottom;
+    }
+}

@@ -1,0 +1,22 @@
+$header-height-view-1: 50px;
+$header-height-space-view-1: $header-height-view-1;
+
+@media screen and (min-width: $min-width-view-1) and (max-width: $max-width-view-1) {
+    
+  .panel-section {
+    
+    .panel-nav {
+
+      @include flex-block-2(0, 0, $nav-collapse-width);
+
+      .block {
+
+        @include fixed-block-1($nav-collapse-width, $nav-height, $header-height-space, 0);
+
+      }
+
+    }
+
+  }
+
+}

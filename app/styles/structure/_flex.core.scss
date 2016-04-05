@@ -1,0 +1,83 @@
+@import "structure/_flex.variables.scss";
+
+#jsConsole{
+  display: none;
+}
+
+html {
+  line-height: 0; 
+}
+
+[class^="col-"] {
+  min-height: 0;
+}
+
+.showStructure1 {
+  background: #eee;
+  text-align: center;
+  border-right: 1px solid #ccc;
+}
+
+.showStructure2 {
+  background: #eee - 10;
+}
+
+.showStructure3 {
+  background: #eee - 20;
+}
+
+.panel-section{
+
+  @include flex-block-3();
+
+  height: 100%;
+
+  .panel-row {
+
+    @include flex-block-2();
+
+  }
+
+  .panel-header {
+
+    @include flex-block-2();
+
+    height: $header-height;
+
+    .block {
+
+      @include fixed-block-1($percent-default, $header-height, 0, 0);
+
+    }
+
+  }
+
+  .panel-nav {
+
+    @include flex-block-2(0, 0, $nav-width);
+
+    .block {
+
+      @include fixed-block-1($nav-width, $nav-height, $header-height-space, 0);
+
+    }
+
+  }
+
+  .panel-article {
+
+    @include flex-block-2(1, 1, 100%);
+
+    .block {
+
+      @include flex-block-2(0, 0, 100%);
+
+    }
+
+  } 
+
+}
+
+// Media queries
+@import "structure/_flex.media-queries.view-1.scss";
+@import "structure/_flex.media-queries.view-2.scss";

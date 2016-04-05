@@ -1,0 +1,24 @@
+@media screen and (max-width: $max-width-view-2) {
+    
+  .panel-section {
+	
+	.panel-header {
+		
+		height: $header-height-view-2;
+
+		.block {
+			
+			height: $header-height-view-2;
+			
+		}
+	}   
+
+    .panel-nav {
+
+      display: none;
+
+    }
+
+  }
+
+}
