@@ -12,20 +12,6 @@ html {
   min-height: 0;
 }
 
-.showStructure1 {
-  background: #eee;
-  text-align: center;
-  border-right: 1px solid #ccc;
-}
-
-.showStructure2 {
-  background: #eee - 10;
-}
-
-.showStructure3 {
-  background: #eee - 20;
-}
-
 .panel-section{
 
   @include flex-block-3();
@@ -43,10 +29,19 @@ html {
     @include flex-block-2();
 
     height: $header-height;
-
+    
     .block {
 
       @include fixed-block-1($percent-default, $header-height, 0, 0);
+      
+      border-bottom: 3px solid #777;
+      background-color: #eee;
+
+      -webkit-box-shadow: 0px -2px 20px 1px rgba(0,0,0,0.62);
+      -moz-box-shadow: 0px -2px 20px 1px rgba(0,0,0,0.62);
+      box-shadow: 0px -2px 20px 1px rgba(0,0,0,0.62);
+
+      z-index: 3;
 
     }
 
@@ -56,9 +51,13 @@ html {
 
     @include flex-block-2(0, 0, $nav-width);
 
+    background-color: #f5f5f5;
+
     .block {
 
       @include fixed-block-1($nav-width, $nav-height, $header-height-space, 0);
+
+      z-index: 2;
 
     }
 
