@@ -81,3 +81,10 @@ html {
 // Media queries
 @import "structure/_flex.media-queries.view-1.scss";
 @import "structure/_flex.media-queries.view-2.scss";
+
+article h3{
+
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+
+}

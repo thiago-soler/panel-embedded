@@ -81,7 +81,7 @@
       
       .link-1{
         
-        background-color: $color-pattern-8-nav-theme-2;
+        background-color: $color-pattern-3-nav-theme-2;
 
         cursor: default;
 
@@ -92,7 +92,7 @@
           .icon-1 {
 
             font-size: 1.1rem;
-            color: $color-pattern-3-nav-theme-2;
+            color: $color-pattern-8-nav-theme-2;
 
           }
 
@@ -100,7 +100,7 @@
 
         .info-1 {
 
-          color: $color-pattern-3-nav-theme-2;
+          color: $color-pattern-8-nav-theme-2;
 
         }
 
@@ -108,7 +108,7 @@
 
           transform: rotate(90deg);
 
-          color: $color-pattern-3-nav-theme-2;
+          color: $color-pattern-8-nav-theme-2;
 
         }
 
@@ -192,8 +192,8 @@
       @include flex-block-2();
       @include style-list-reset();
 
-      border-top: 1px solid $color-pattern-9-nav-theme-2;
-      border-bottom: 1px solid $color-pattern-9-nav-theme-2;
+      // border-top: 1px solid $color-pattern-9-nav-theme-2;
+      // border-bottom: 1px solid $color-pattern-9-nav-theme-2;
       background-color: $color-pattern-7-nav-theme-2;
 
       display: none;
@@ -232,8 +232,6 @@
           .info-2 {
             
             color: $color-pattern-3-nav-theme-2;
-            
-            transition: all 0.5s ease-out;
 
           }
 
@@ -253,6 +251,27 @@
 
             .info-2 {
 
+              color: $color-pattern-3-nav-theme-2;
+
+            }
+
+          }
+
+        }
+
+        &.selected {
+          
+          .link-2 {
+            
+            .icon-2 {
+
+              color: $color-pattern-3-nav-theme-2;
+
+            }
+
+            .info-2 {
+              
+              font-weight: bold;
               color: $color-pattern-3-nav-theme-2;
 
             }
