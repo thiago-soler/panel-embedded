@@ -1,0 +1,272 @@
+@import "themes/_nav-theme-2.variables.scss";
+
+.nav-theme-2{
+  
+  @include flex-block-3();
+  @include style-list-reset();
+
+  .item-1 {
+    
+    @include flex-block-3();
+
+    .block-1 {
+
+      @include flex-block-2();
+
+    }
+
+    .link-1 {
+
+      @include flex-block-2();
+
+      align-items: center;
+      padding: 10px;
+
+      border-top: 1px solid $color-pattern-6-nav-theme-2;
+      border-bottom: 1px solid $color-pattern-6-nav-theme-2;
+
+      font-size: 0.8rem;
+      text-decoration: none;
+
+      transition: all 0.3s ease-out;
+      
+      .bullet-1 {
+
+        @include flex-block-2(0, 0, $bullet-1-diameter-nav-theme-2);
+        height: $bullet-1-diameter-nav-theme-2;
+        word-break: keep-all;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 0.7rem;
+
+        border-radius: 11px;
+
+        background-color: $color-pattern-2-nav-theme-2;
+
+        transition: all 0.5s ease-out;
+
+        .icon-1 {
+
+          align-self: center;
+          color: $color-pattern-7-nav-theme-2;
+
+          transition: all 0.5s ease-out;
+
+        }
+
+      }
+
+      .info-1 {
+          
+        flex-grow: 1;
+        
+        margin-left: 5px;
+
+        color: $color-pattern-3-nav-theme-2;
+
+      }
+
+      .icon-list-1 {
+        
+        color: $color-pattern-2-nav-theme-2;
+
+        transition: all 0.5s ease-out;
+
+      }
+
+    }
+
+    &.active {
+      
+      .link-1{
+        
+        background-color: $color-pattern-8-nav-theme-2;
+
+        cursor: default;
+
+        .bullet-1 {
+
+          background-color: transparent;
+
+          .icon-1 {
+
+            font-size: 1.1rem;
+            color: $color-pattern-3-nav-theme-2;
+
+          }
+
+        }
+
+        .info-1 {
+
+          color: $color-pattern-3-nav-theme-2;
+
+        }
+
+        .icon-list-1 {
+
+          transform: rotate(90deg);
+
+          color: $color-pattern-3-nav-theme-2;
+
+        }
+
+      }
+
+      .sub-list-1 {
+
+        display: block;
+
+      }
+
+    }
+
+    &.selected{
+
+      .block-1 {
+
+        &:after {
+          @include flex-block-2(0, 0, 1px);
+
+          content: '';
+          width: 1px;
+          background-color: $color-pattern-7-nav-theme-2;
+        }
+
+        .link-1 {
+
+          border-top: 1px solid $color-pattern-1-nav-theme-2;
+          border-bottom: 1px solid $color-pattern-1-nav-theme-2;
+
+          background-color: $color-pattern-7-nav-theme-2;
+
+          cursor: default;
+
+          .bullet-1 {
+
+            background: $color-pattern-3-nav-theme-2;
+
+          }
+
+          .info-1 {
+
+            font-weight: bold;
+            color: $color-pattern-3-nav-theme-2;
+
+          }
+
+        }
+
+      }
+
+    }
+
+    &:not(.selected):not(.active):hover {
+
+      .link-1 {
+
+        background-color: $color-pattern-4-nav-theme-2;
+
+        border-top: 1px solid $color-pattern-4-nav-theme-2;
+        border-bottom: 1px solid $color-pattern-4-nav-theme-2;
+
+        .bullet-1 {
+
+          background-color: $color-pattern-3-nav-theme-2;
+
+        }
+
+        .info-1 {
+
+          color: $color-pattern-3-nav-theme-2;
+
+        }
+
+      }
+
+    }
+
+    .sub-list-1 {
+      
+      @include flex-block-2();
+      @include style-list-reset();
+
+      border-top: 1px solid $color-pattern-9-nav-theme-2;
+      border-bottom: 1px solid $color-pattern-9-nav-theme-2;
+      background-color: $color-pattern-7-nav-theme-2;
+
+      display: none;
+
+      .item-2 {
+
+        @include flex-block-2();
+
+        .block-2 {
+
+          @include flex-block-2();
+
+        }
+
+        .link-2 {
+
+          @include flex-block-2();
+          align-items: center;
+
+          padding: 8px 10px 8px 36px;
+
+          font-size: 0.8rem;
+          text-decoration: none;
+
+          transition: all 0.5s ease-out;
+
+          .icon-2 {
+
+            color: $color-pattern-2-nav-theme-2;
+            margin-right: 5px;
+
+            transition: all 0.5s ease-out;
+
+          }
+
+          .info-2 {
+            
+            color: $color-pattern-3-nav-theme-2;
+            
+            transition: all 0.5s ease-out;
+
+          }
+
+        }
+
+        &:not(.selected):hover {
+          
+          .link-2 {
+
+            background-color: $color-pattern-4-nav-theme-2;
+
+            .icon-2 {
+
+              color: $color-pattern-3-nav-theme-2;
+
+            }
+
+            .info-2 {
+
+              color: $color-pattern-3-nav-theme-2;
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+@import "themes/_nav-theme-2.media-queries.view-1.scss";

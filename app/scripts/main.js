@@ -1,8 +1,6 @@
 'use strict';
 
-$.ajax({url: "includes/nav-theme-1.html", context: document.body}).done(function(data) {
-
-	$('#panel-nav .block').html(data);
+function _activateMenu () {
 
 	$('#panel-nav .item-1').click(function(e) {
 		e.preventDefault();
@@ -15,7 +13,23 @@ $.ajax({url: "includes/nav-theme-1.html", context: document.body}).done(function
 		}
 	});
 
+}
+
+$.ajax({url: "includes/nav-theme-1.html", context: document.body}).done(function(data) {
+
+	$('#panel-nav .block').append(data);
+
+	$.ajax({url: "includes/nav-theme-2.html", context: document.body}).done(function(data) {
+
+		$('#panel-nav .block').append(data);
+
+		_activateMenu();
+
+	});
+
 });
+
+
 
 $.ajax({url: "includes/article.html", context: document.body}).done(function(data) {
 

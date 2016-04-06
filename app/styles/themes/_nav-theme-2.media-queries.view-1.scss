@@ -1,0 +1,66 @@
+@media screen and (min-width: $min-width-view-1) and (max-width: $max-width-view-1) {
+  
+  .nav-theme-2 {
+    
+    .item-1 {
+      
+      .block-1 {
+
+        .link-1 {
+          
+          flex-wrap: wrap;
+          justify-content: center;
+
+          .bullet-1 {
+
+            margin: 0;
+
+          }
+
+          .info-1 {
+
+            display: none;
+
+          }
+
+          .icon-list-1 {
+
+            margin-top: -3px;
+            transform: rotate(90deg);
+            font-size: 0.7rem;
+
+          }
+
+        }
+        
+        .sub-list-1 {
+        
+          display: none;
+
+        }
+
+      }
+
+    }
+
+    :not(.active).item-1 {
+      
+      .block-1 {
+
+        .link-1 {
+          
+          .icon-list-1 {
+
+            transform: rotate(-90deg);
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

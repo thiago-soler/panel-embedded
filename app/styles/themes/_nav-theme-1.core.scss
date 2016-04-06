@@ -1,11 +1,5 @@
 @import "themes/_nav-theme-1.variables.scss";
 
-$color-pattern-1-nav-theme-1: #ddd;
-$color-pattern-2-nav-theme-1: #aaa;
-$color-pattern-3-nav-theme-1: #555;
-$color-pattern-4-nav-theme-1: #E2E2E2;
-$color-pattern-5-nav-theme-1: #777;
-
 .nav-theme-1 {
   
   @include flex-block-3();
@@ -94,3 +88,5 @@ $color-pattern-5-nav-theme-1: #777;
   }
 
 }
+
+@import "themes/_nav-theme-1.media-queries.view-1.scss";
