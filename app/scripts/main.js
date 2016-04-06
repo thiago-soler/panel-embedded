@@ -25,6 +25,10 @@ function _activateMenu () {
 		$('#panel-nav .item-1').removeClass('active');
 		$(this).addClass('selected');
 
+		var profile = $(this).data('profile');
+
+		$('#panel-section').attr('data-profile', profile);
+
 	});
 
 }
