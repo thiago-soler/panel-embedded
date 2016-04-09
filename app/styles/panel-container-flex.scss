@@ -5,6 +5,9 @@ $icon-font-path: '../fonts/';
 @import "bower_components/components-font-awesome/scss/font-awesome.scss";
 // endbower
 
+// Common Colors
+@import "themes/_common-colors.variables.scss";
+
 // Mixins
 @import "mixins/_blocks.scss";
 @import "mixins/_resets.scss";
