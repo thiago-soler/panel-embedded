@@ -1,6 +1,175 @@
-.panel-section[data-profile="panel-dev"]{
+@mixin profile-theme-pattern-1 ($background-color-1: null, $border-color-1: null, $text-color-1: null) {
 	
+	@if $background-color-1 != null {
+		background-color: $background-color-1;
+    }
+    
+	@if $border-color-1 != null {
+		border-color: $border-color-1;
+	}
+
+	@if $text-color-1 != null {
+		color: $text-color-1;
+	}
+
 }
+
+@mixin profile-theme-nav-theme-1 ($color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7) {
+	
+	.panel-header{
+
+		h1{
+
+			color: $color-2;
+			
+			.icon-1 {
+
+				color: $color-5;
+				
+			}
+			
+			.first {
+				
+				color: $color-5;
+
+			}
+
+		}
+
+	}
+
+	.nav-theme-1 {
+		
+		.item-1 {
+			
+			.link-1 {
+				
+				@include profile-theme-pattern-1 (null, $color-1);
+
+				.icon-1 {
+					
+					@include profile-theme-pattern-1(null, null, $color-2);
+				}
+
+				.info-1 {
+					
+					@include profile-theme-pattern-1(null, null, $color-3);
+				}
+
+			}
+
+			&:not(.selected):hover {
+
+				.link-1 {
+
+					background: $color-4;
+
+					.icon-1 {
+
+						color: $color-6;
+
+					}
+
+				}
+
+			}
+
+			&.selected {
+
+				.link-1 {
+
+					background: #fff;
+
+					.icon-1 {
+
+						color: $color-7;
+
+					}
+					.info-1 {
+
+						color: $color-7;
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+@mixin profile-structure ($name, $color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7, $color-8) {
+
+	.panel-section[data-profile=#{$name}] {
+		
+		.panel-header {
+			
+			background-color: $color-1;
+
+			.block {
+				
+				@include profile-theme-pattern-1($color-1, $color-3);
+				
+			}
+
+		}
+
+		.panel-nav {
+			
+			background-color: $color-1;
+
+			.block {
+				
+				@include profile-theme-pattern-1($color-1, $color-2);
+				
+			}
+
+		}
+
+		@include profile-theme-nav-theme-1($color-2, $color-4, $color-5, $color-6, $color-3, $color-7, $color-8);
+
+	}
+
+}
+
+@include profile-structure (
+	"dev-panel",
+	#444,
+	#333,
+	#1b7ca6,
+	#999,
+	#ddd,
+	#3F4B50,
+	#4898BB,
+	#555
+);
+
+@include profile-structure (
+	"user-panel",
+	#f1f1f1,
+	#ccc,
+	#BA4CBD,
+	#999,
+	#555,
+	#EDE4ED,
+	#BA4CBD,
+	#555
+);
+
+// @include profile-structure (
+// 	"user-panel",
+// 	#f1f1f1,
+// 	#ccc,
+// 	#1b7ca6
+// );
+
+
+
+
+
 
 // $test-color-blue-1: #1b7ca6;
 // $test-color-blue-2: #e5eaec;

@@ -45,10 +45,28 @@ function lint(files, options) {
 const testLintOptions = {
   env: {
     mocha: true
+  },
+  globals: {
+      'jQuery':true,
+      '$':true
+  },
+  "rules":{
+    "no-trailing-spaces": ["error", { "skipBlankLines": true }]
   }
 };
 
-gulp.task('lint', lint('app/scripts/**/*.js'));
+const buildLintOptions = {
+  globals: {
+      'jQuery':true,
+      '$':true
+  },
+  "rules":{
+    "no-trailing-spaces": ["error", { "skipBlankLines": true }],
+    "no-underscore-dangle": "error"
+  }
+};
+
+gulp.task('lint', lint('app/scripts/**/*.js', buildLintOptions));
 gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
 gulp.task('html', ['styles', 'scripts'], () => {

@@ -33,15 +33,25 @@ function _activateMenu () {
 
 }
 
-$.ajax({url: "includes/nav-theme-1.html", context: document.body}).done(function(data) {
+$.ajax({url: 'nav-theme-1.html', context: document.body}).done(function(data) {
 
 	$('#panel-nav .block').append(data);
 
-	$.ajax({url: "includes/nav-theme-2.html", context: document.body}).done(function(data) {
+	$.ajax({url: 'nav-theme-2.html', context: document.body}).done(function(dataB) {
 
-		$('#panel-nav .block').append(data);
+		$('#panel-nav .block').append(dataB);
 
 		_activateMenu();
+
+	});
+
+	$('#panel-nav a[data-set-profile$="-panel"]').click(function () {
+
+		var that = $(this),
+			profile = that.data('set-profile'),
+			$section = $('#panel-section');
+
+		$section.attr('data-profile', profile);
 
 	});
 
@@ -49,14 +59,14 @@ $.ajax({url: "includes/nav-theme-1.html", context: document.body}).done(function
 
 
 
-$.ajax({url: "includes/article.html", context: document.body}).done(function(data) {
+$.ajax({url: 'article.html', context: document.body}).done(function(data) {
 
 	$('#panel-article .block').html(data);
 
 });
 
 
-$.ajax({url: "includes/header.html", context: document.body}).done(function(data) {
+$.ajax({url: 'header.html', context: document.body}).done(function(data) {
 
 	$('#panel-header .block').html(data);
 
