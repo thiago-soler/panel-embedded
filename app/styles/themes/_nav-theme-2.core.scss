@@ -25,7 +25,9 @@
       border-top: 1px solid $color-pattern-6-nav-theme-2;
       border-bottom: 1px solid $color-pattern-6-nav-theme-2;
 
-      font-size: 0.8rem;
+      background-color: $color-pattern-6-nav-theme-2;
+
+      font-size: 0.9rem;
       text-decoration: none;
 
       transition: all 0.3s ease-out;
@@ -64,6 +66,8 @@
         margin-left: 5px;
 
         color: $color-pattern-3-nav-theme-2;
+
+        transition: all 0.5s ease-out;
 
       }
 

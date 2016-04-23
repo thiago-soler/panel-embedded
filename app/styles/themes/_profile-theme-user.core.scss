@@ -14,7 +14,29 @@
 
 }
 
-@mixin profile-theme-nav-theme-1 ($color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7) {
+@mixin profile-theme-nav-theme-1 ($color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7, $color-8) {
+	
+	.panel-header{
+
+		h1{
+
+			color: $color-2;
+			
+			.icon-1 {
+
+				color: $color-5;
+				
+			}
+			
+			.first {
+				
+				color: $color-5;
+
+			}
+
+		}
+
+	}
 
 	.nav-theme-1 {
 		
@@ -56,16 +78,16 @@
 
 				.link-1 {
 
-					background: #fff;
+					@include profile-theme-pattern-1 ($color-8);
 
 					.icon-1 {
 
-						color: $color-7;
+						@include profile-theme-pattern-1 (null, null, $color-7);
 
 					}
 					.info-1 {
 
-						color: $color-7;
+						@include profile-theme-pattern-1 (null, null, $color-7);
 
 					}
 
@@ -79,21 +101,105 @@
 
 }
 
-@mixin profile-theme-nav-theme-2 () {
+@mixin profile-theme-nav-theme-2 ($color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7) {
 	
 	.nav-theme-2{
 		
 		.item-1 {
 			
-			border-color: red;
+			.link-1 {
+				
+				@include profile-theme-pattern-1 ($color-1, $color-1);
+
+				.bullet-1 {
+					
+					@include profile-theme-pattern-1 ($color-2);
+
+					.icon-1 {
+						
+						@include profile-theme-pattern-1 (null, null, $color-1);
+
+					}
+
+				}
+
+				.info-1 {
+					
+					@include profile-theme-pattern-1 (null, null, $color-3);
+
+				}
+
+				.icon-list-1 {
+        
+					@include profile-theme-pattern-1 (null, null, $color-2);
+
+				}
+
+      		}
+
+      		&.active {
+      
+				.link-1{
+
+					@include profile-theme-pattern-1 ($color-6, $color-6);
+
+					.bullet-1 {
+						
+						background-color: transparent;
+
+						.icon-1 {
+							
+							@include profile-theme-pattern-1 (null, null, $color-7);
+
+						}
+
+					}
+
+					.info-1 {
+
+						@include profile-theme-pattern-1 (null, null, $color-7);
+
+					}
+
+					.icon-list-1 {
+        
+						@include profile-theme-pattern-1 (null, null, $color-7);
+
+					}
+
+				}
+
+			}
 			
+			&:not(.selected):not(.active):hover {
+				
+				.link-1 {
+
+					@include profile-theme-pattern-1 ($color-4, $color-4);
+
+				}
+
+				.bullet-1 {
+					
+					@include profile-theme-pattern-1 ($color-5);
+
+				}
+
+				.info-1 {
+
+					@include profile-theme-pattern-1 (null, null, $color-3);
+
+				}
+
+			}
+
 		}
 
 	}
 	
 }
 
-@mixin profile-structure ($name, $color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7, $color-8) {
+@mixin profile-structure ($name, $color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7, $color-8, $color-9, $color-10) {
 
 	.panel-section[data-profile=#{$name}] {
 		
@@ -105,24 +211,6 @@
 				
 				@include profile-theme-pattern-1($color-1, $color-3);
 				
-			}
-
-			h1{
-
-				color: $color-2;
-				
-				.icon-1 {
-
-					color: $color-5;
-					
-				}
-				
-				.first {
-					
-					color: $color-5;
-
-				}
-
 			}
 
 		}
@@ -139,9 +227,9 @@
 
 		}
 
-		@include profile-theme-nav-theme-1($color-2, $color-4, $color-5, $color-6, $color-3, $color-7, $color-8);
-		
-		@include profile-theme-nav-theme-2();
+		@include profile-theme-nav-theme-1($color-2, $color-4, $color-5, $color-6, $color-3, $color-7, $color-8, $color-9);
+
+		@include profile-theme-nav-theme-2($color-1, $color-4, $color-5, $color-6, $color-3, $color-7, $color-10);
 
 	}
 
@@ -156,7 +244,9 @@
 	#ddd,
 	#3F4B50,
 	#4898BB,
-	#555
+	#555,
+	#fff,
+	#f1f1f1
 );
 
 @include profile-structure (
@@ -168,7 +258,9 @@
 	#555,
 	#EDE4ED,
 	#BA4CBD,
-	#555
+	#555,
+	#fff,
+	#f1f1f1
 );
 
 // @include profile-structure (
