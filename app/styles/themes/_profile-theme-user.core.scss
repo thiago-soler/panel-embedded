@@ -15,28 +15,6 @@
 }
 
 @mixin profile-theme-nav-theme-1 ($color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7) {
-	
-	.panel-header{
-
-		h1{
-
-			color: $color-2;
-			
-			.icon-1 {
-
-				color: $color-5;
-				
-			}
-			
-			.first {
-				
-				color: $color-5;
-
-			}
-
-		}
-
-	}
 
 	.nav-theme-1 {
 		
@@ -101,6 +79,20 @@
 
 }
 
+@mixin profile-theme-nav-theme-2 () {
+	
+	.nav-theme-2{
+		
+		.item-1 {
+			
+			border-color: red;
+			
+		}
+
+	}
+	
+}
+
 @mixin profile-structure ($name, $color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7, $color-8) {
 
 	.panel-section[data-profile=#{$name}] {
@@ -113,6 +105,24 @@
 				
 				@include profile-theme-pattern-1($color-1, $color-3);
 				
+			}
+
+			h1{
+
+				color: $color-2;
+				
+				.icon-1 {
+
+					color: $color-5;
+					
+				}
+				
+				.first {
+					
+					color: $color-5;
+
+				}
+
 			}
 
 		}
@@ -130,6 +140,8 @@
 		}
 
 		@include profile-theme-nav-theme-1($color-2, $color-4, $color-5, $color-6, $color-3, $color-7, $color-8);
+		
+		@include profile-theme-nav-theme-2();
 
 	}
 
