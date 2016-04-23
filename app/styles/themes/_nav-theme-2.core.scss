@@ -198,9 +198,11 @@
 
       // border-top: 1px solid $color-pattern-9-nav-theme-2;
       // border-bottom: 1px solid $color-pattern-9-nav-theme-2;
-      background-color: $color-pattern-7-nav-theme-2;
+      background-color: $color-pattern-4-nav-theme-2;
 
       display: none;
+
+      transition: all 0.5s ease-out;
 
       .item-2 {
 
@@ -215,6 +217,9 @@
         .link-2 {
 
           @include flex-block-2();
+
+          background-color: $color-pattern-4-nav-theme-2;
+
           align-items: center;
 
           padding: 8px 10px 8px 36px;
@@ -267,6 +272,8 @@
           
           .link-2 {
             
+            background-color: $color-pattern-7-nav-theme-2;
+
             cursor: default;
             
             .icon-2 {
@@ -282,6 +289,13 @@
 
             }
 
+          }
+
+          &:after {
+            flex: 0 0 1px;
+            content: '';
+            width: 1px;
+            background: $color-pattern-7-nav-theme-2;
           }
 
         }

@@ -101,7 +101,7 @@
 
 }
 
-@mixin profile-theme-nav-theme-2 ($color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7) {
+@mixin profile-theme-nav-theme-2 ($color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7, $color-8, $color-9, $color-10) {
 	
 	.nav-theme-2{
 		
@@ -193,13 +193,75 @@
 
 			}
 
+			.sub-list-1 {
+
+				.item-2 {
+					
+					.link-2 {
+
+						@include profile-theme-pattern-1 ($color-9);
+
+						.icon-2 {
+
+							@include profile-theme-pattern-1 (null, null, $color-2);
+
+						}
+
+						.info-2 {
+
+							@include profile-theme-pattern-1 (null, null, $color-3);
+
+						}
+					}
+
+					&:not(.selected):hover {
+
+						.link-2 {
+
+							@include profile-theme-pattern-1 ($color-4);
+
+							.icon-2 {
+								
+								@include profile-theme-pattern-1 (null, null, $color-5);
+
+							}
+
+						}
+
+					}
+
+					 &.selected {
+          
+          				.link-2 {
+
+          					@include profile-theme-pattern-1 ($color-10);
+	          				
+	          				.icon-2 {
+	          					
+	          					@include profile-theme-pattern-1 (null, null, $color-8);
+
+	          				}
+
+	          				.info-2 {
+	          					
+	          					@include profile-theme-pattern-1 (null, null, $color-8);
+
+	          				}
+
+          				}
+          			}
+
+				}
+
+			}
+
 		}
 
 	}
 	
 }
 
-@mixin profile-structure ($name, $color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7, $color-8, $color-9, $color-10) {
+@mixin profile-structure ($name, $color-1, $color-2, $color-3, $color-4, $color-5, $color-6, $color-7, $color-8, $color-9, $color-10, $color-11) {
 
 	.panel-section[data-profile=#{$name}] {
 		
@@ -229,7 +291,7 @@
 
 		@include profile-theme-nav-theme-1($color-2, $color-4, $color-5, $color-6, $color-3, $color-7, $color-8, $color-9);
 
-		@include profile-theme-nav-theme-2($color-1, $color-4, $color-5, $color-6, $color-3, $color-7, $color-10);
+		@include profile-theme-nav-theme-2($color-1, $color-4, $color-5, $color-6, $color-3, $color-7, $color-10, $color-8, $color-11, $color-9);
 
 	}
 
@@ -246,7 +308,8 @@
 	#4898BB,
 	#555,
 	#fff,
-	#f1f1f1
+	#f1f1f1,
+	#555
 );
 
 @include profile-structure (
@@ -260,439 +323,6 @@
 	#BA4CBD,
 	#555,
 	#fff,
-	#f1f1f1
+	#f1f1f1,
+	#e2e2e2
 );
-
-// @include profile-structure (
-// 	"user-panel",
-// 	#f1f1f1,
-// 	#ccc,
-// 	#1b7ca6
-// );
-
-
-
-
-
-
-// $test-color-blue-1: #1b7ca6;
-// $test-color-blue-2: #e5eaec;
-
-// $test-color-gray-1: #f1f1f1;
-// $test-color-gray-2: #777;
-
-// $test-color-orange-1: #e49a16;
-// $test-color-orange-2: #fdf1db;
-
-// .panel-section[data-profile="panel-user"]{
-
-// 	.panel-header{
-
-// 		.block{
-			
-// 			border-color: $test-color-blue-1;
-// 			background-color: $test-color-gray-1;
-
-
-// 			h1{
-
-// 				color: $test-color-blue-1;
-
-// 				.second {
-
-// 					color: $test-color-gray-2;
-// 				}
-// 			}
-// 		}
-// 	}
-
-// 	.panel-nav {
-		
-// 		.block {
-			
-// 			background-color: $test-color-gray-1;
-// 		}
-
-// 		.nav-theme-1 {
-
-// 			.item-1 {
-
-// 				&:not(.selected):hover {
-
-// 					.link-1 {
-
-// 			        	background: $test-color-blue-2;
-
-// 				        .icon-1 {
-
-// 				          color: $test-color-blue-1;
-
-// 				        }
-
-// 					}
-
-// 			    }
-
-// 			}
-
-// 		}
-
-// 		.nav-theme-2 {
-
-// 			.item-1 {
-
-// 				&.active {
-      
-// 			      .link-1{
-			        
-// 			        background-color: $test-color-orange-2;
-
-// 			        .bullet-1 {
-
-// 			          .icon-1 {
-
-// 			            color: $color-pattern-3-nav-theme-2;
-
-// 			          }
-
-// 			      	}
-
-// 			      	.info-1 {
-
-// 			          color: $color-pattern-3-nav-theme-2;
-
-// 			        }
-
-// 			        .icon-list-1 {
-
-// 			          color: $test-color-orange-1;
-
-// 			        }
-
-// 			      }
-
-// 			    }
-
-// 			    &.selected{
-
-// 			      .block-1 {
-
-// 			        .link-1 {
-
-// 			          .bullet-1 {
-
-// 			            background: $test-color-orange-1;
-
-// 			          }
-
-// 			          .info-1 {
-
-// 			            color: $test-color-orange-1;
-
-// 			          }
-
-// 			        }
-
-// 			      }
-
-// 			    }
-
-// 				&:not(.selected):not(.active):hover {
-
-// 					.link-1 {
-
-// 						background-color: $test-color-blue-2;
-
-// 						border-color: $test-color-blue-2;
-
-// 						.bullet-1 {
-
-// 							background-color: $test-color-blue-1;
-
-// 						}
-
-// 						.info-1 {
-
-// 							color: $test-color-blue-1;
-
-// 						}
-
-// 					}
-
-// 				}
-
-// 				.sub-list-1 {
-					
-// 					.item-2 {
-
-// 						&:not(.selected):hover {
-          
-// 				          .link-2 {
-
-// 				            background-color: $test-color-blue-2;
-
-// 				            .icon-2 {
-
-// 				              color: $test-color-blue-1;
-
-// 				            }
-
-// 				            .info-2 {
-
-// 				              color: $test-color-blue-1;
-
-// 				            }
-
-// 				          }
-
-// 				        }
-
-// 				        &.selected {
-          
-// 				          .link-2 {
-				            
-// 				            .icon-2 {
-
-// 				              color: $test-color-orange-1;
-
-// 				            }
-
-// 				            .info-2 {
-				              
-// 				              color: $test-color-orange-1;
-
-// 				            }
-
-// 				          }
-
-// 				        }
-// 					}
-// 				}
-
-// 			}
-// 		}
-
-// 	}
-	
-// }
-
-
-
-
-
-
-
-
-
-// $test-color-blue-1: #1b7ca6;
-// $test-color-blue-2: #e5eaec;
-
-// $test-color-gray-1: #555;
-// $test-color-gray-2: #777;
-
-// $test-color-orange-1: #e49a16;
-// $test-color-orange-2: #fdf1db;
-
-
-
-
-// .panel-section[data-profile="panel-dev"]{
-
-// 	.panel-header{
-
-// 		.block{
-			
-// 			border-color: $test-color-blue-1;
-// 			background-color: $test-color-gray-1;
-
-
-// 			h1{
-
-// 				color: $test-color-blue-1;
-
-// 				.second {
-
-// 					color: $test-color-gray-2;
-// 				}
-// 			}
-// 		}
-// 	}
-
-// 	.panel-nav {
-		
-// 		.block {
-			
-// 			background-color: $test-color-gray-1;
-// 		}
-
-// 		.nav-theme-1 {
-
-// 			.item-1 {
-
-// 				&:not(.selected):hover {
-
-// 					.link-1 {
-
-// 			        	background: $test-color-blue-2;
-
-// 				        .icon-1 {
-
-// 				          color: $test-color-blue-1;
-
-// 				        }
-
-// 					}
-
-// 			    }
-
-// 			}
-
-// 		}
-
-// 		.nav-theme-2 {
-
-// 			.item-1 {
-
-// 				.link-1 {
-
-// 					border-color: $test-color-gray-1;
-// 				}
-
-// 				&.active {
-      
-// 			      .link-1{
-			        
-// 			        background-color: $test-color-orange-2;
-
-// 			        .bullet-1 {
-
-// 			          .icon-1 {
-
-// 			            color: $color-pattern-3-nav-theme-2;
-
-// 			          }
-
-// 			      	}
-
-// 			      	.info-1 {
-
-// 			          color: $color-pattern-3-nav-theme-2;
-
-// 			        }
-
-// 			        .icon-list-1 {
-
-// 			          color: $test-color-orange-1;
-
-// 			        }
-
-// 			      }
-
-// 			    }
-
-// 			    &.selected{
-
-// 			      .block-1 {
-
-// 			        .link-1 {
-
-// 		        		border-top: 1px solid $color-pattern-6-nav-theme-2;
-//       					border-bottom: 1px solid $color-pattern-6-nav-theme-2;
-
-// 			          .bullet-1 {
-
-// 			            background: $test-color-orange-1;
-
-// 			          }
-
-// 			          .info-1 {
-
-// 			            color: $test-color-orange-1;
-
-// 			          }
-
-// 			        }
-
-// 			      }
-
-// 			    }
-
-// 				&:not(.selected):not(.active):hover {
-
-// 					.link-1 {
-
-// 						background-color: $test-color-blue-2;
-
-// 						border-color: $test-color-blue-2;
-
-// 						.bullet-1 {
-
-// 							background-color: $test-color-blue-1;
-
-// 						}
-
-// 						.info-1 {
-
-// 							color: $test-color-blue-1;
-
-// 						}
-
-// 					}
-
-// 				}
-
-// 				.sub-list-1 {
-					
-// 					.item-2 {
-
-// 						&:not(.selected):hover {
-          
-// 				          .link-2 {
-
-// 				            background-color: $test-color-blue-2;
-
-// 				            .icon-2 {
-
-// 				              color: $test-color-blue-1;
-
-// 				            }
-
-// 				            .info-2 {
-
-// 				              color: $test-color-blue-1;
-
-// 				            }
-
-// 				          }
-
-// 				        }
-
-// 				        &.selected {
-          
-// 				          .link-2 {
-				            
-// 				            .icon-2 {
-
-// 				              color: $test-color-orange-1;
-
-// 				            }
-
-// 				            .info-2 {
-				              
-// 				              color: $test-color-orange-1;
-
-// 				            }
-
-// 				          }
-
-// 				        }
-// 					}
-// 				}
-
-// 			}
-// 		}
-
-// 	}
-	
-// }
-
