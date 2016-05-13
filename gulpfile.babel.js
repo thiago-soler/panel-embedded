@@ -8,6 +8,9 @@ import {stream as wiredep} from 'wiredep';
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
 
+const jasmine = require('gulp-jasmine');
+const reporters = require('jasmine-reporters');
+
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
     .pipe($.plumber())
@@ -24,7 +27,7 @@ gulp.task('styles', () => {
 });
 
 gulp.task('scripts', () => {
-  return gulp.src('app/scripts/**/*.js')
+  return gulp.src('app/scripts/**/**.js')
     .pipe($.plumber())
     .pipe($.sourcemaps.init())
     .pipe($.babel())
@@ -66,7 +69,7 @@ const buildLintOptions = {
   }
 };
 
-gulp.task('lint', lint('app/scripts/**/*.js', buildLintOptions));
+gulp.task('lint', lint('app/scripts/**/**.js', buildLintOptions));
 gulp.task('lint:test', lint('test/spec/**/*.js', testLintOptions));
 
 gulp.task('html', ['styles', 'scripts'], () => {
@@ -127,7 +130,7 @@ gulp.task('serve', ['styles', 'scripts', 'fonts'], () => {
   ]).on('change', reload);
 
   gulp.watch('app/styles/**/**/*.scss', ['styles']);
-  gulp.watch('app/scripts/**/*.js', ['scripts']);
+  gulp.watch('app/scripts/**/**.js', ['scripts']);
   gulp.watch('app/fonts/**/*', ['fonts']);
   gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
@@ -156,7 +159,7 @@ gulp.task('serve:test', ['scripts'], () => {
     }
   });
 
-  gulp.watch('app/scripts/**/*.js', ['scripts']);
+  gulp.watch('app/scripts/**/**.js', ['scripts']);
   gulp.watch('test/spec/**/*.js').on('change', reload);
   gulp.watch('test/spec/**/*.js', ['lint:test']);
 });
@@ -184,3 +187,14 @@ gulp.task('default', ['clean'], () => {
   gulp.start('build');
 });
 
+
+gulp.task('javascript:test', () =>
+  gulp.src('app/scripts/**/**.spec.js')
+    .pipe(jasmine({
+      reporter: new reporters.JUnitXmlReporter()
+    }))
+);
+
+gulp.task('jasmine:test', ['javascript:test'], function() {
+  gulp.watch('app/scripts/**/**.spec.js', ['javascript:test']);
+});
