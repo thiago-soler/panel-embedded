@@ -1,12 +1,9 @@
 'use strict';
 
-var window = window || {},
-	document = document || {};
-
 // uh.js - START
 ( function ( window, document, undefined ) {
 
-    var uh = window.uh || {};
+    var uh = window.uh || {teste:true};
 
     window.uh = uh;
 

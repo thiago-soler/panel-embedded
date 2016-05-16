@@ -1,0 +1,8 @@
+{"statement": {"node": 0}},
+{"statement": {"node": 1}},
+{"expression": {"node": 2}},
+{"block": 0},
+{"statement": {"node": 3}},
+{"expression": {"node": 4}},
+{"statement": {"node": 5}},
+{"expression": {"node": 6}},

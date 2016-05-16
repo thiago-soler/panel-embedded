@@ -10,6 +10,8 @@ const reload = browserSync.reload;
 
 const jasmine = require('gulp-jasmine');
 const reporters = require('jasmine-reporters');
+const cover = require('gulp-coverage');
+const logSymbols = require('log-symbols');
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -190,11 +192,56 @@ gulp.task('default', ['clean'], () => {
 
 gulp.task('javascript:test', () =>
   gulp.src('app/scripts/**/**.spec.js')
-    .pipe(jasmine({
-      reporter: new reporters.JUnitXmlReporter()
+    .pipe(cover.instrument({
+        pattern: [
+          'app/scripts/**/**.js',
+          '!app/scripts/json/**/*'
+        ],
+        debugDirectory: 'debug'
     }))
+    .pipe(jasmine({
+      reporter: {
+
+        jasmineStarted: function(suiteInfo) {
+
+          console.info(' ');
+          console.info(' ' + logSymbols.info + ' Iniciando testes unitários (Total de specs: ' + suiteInfo.totalSpecsDefined + ')');
+          console.info(' ');
+
+        },
+
+        specDone: function(result) {
+        
+          if (result.status === 'passed'){
+            
+            console.log(' ' + logSymbols.success + ' ' + result.description);
+
+          }
+        
+          for(var i = 0; i < result.failedExpectations.length; i++) {
+          
+            console.log(' ' + logSymbols.error + ' ' + result.failedExpectations[i].message);
+
+          }
+          
+        },
+
+        suiteDone: function(result) {
+          
+          console.info(' ');
+          console.info(' ' + logSymbols.info + ' Fim dos testes');
+          console.info(' ');
+
+        }
+
+      }
+
+    }))
+    .pipe(cover.gather())
+    .pipe(cover.format())
+    .pipe(gulp.dest('reports'))
 );
 
 gulp.task('jasmine:test', ['javascript:test'], function() {
-  gulp.watch('app/scripts/**/**.spec.js', ['javascript:test']);
+  gulp.watch('app/scripts/**/**.js', ['javascript:test']);
 });
