@@ -10,8 +10,9 @@ const reload = browserSync.reload;
 
 const jasmine = require('gulp-jasmine');
 const reporters = require('jasmine-reporters');
-const cover = require('gulp-coverage');
 const logSymbols = require('log-symbols');
+
+const Server = require('karma').Server;
 
 gulp.task('styles', () => {
   return gulp.src('app/styles/*.scss')
@@ -191,14 +192,7 @@ gulp.task('default', ['clean'], () => {
 
 
 gulp.task('javascript:test', () =>
-  gulp.src('app/scripts/**/**.spec.js')
-    .pipe(cover.instrument({
-        pattern: [
-          'app/scripts/**/**.js',
-          '!app/scripts/json/**/*'
-        ],
-        debugDirectory: 'debug'
-    }))
+  gulp.src('test/spec/**/**.js')
     .pipe(jasmine({
       reporter: {
 
@@ -237,11 +231,14 @@ gulp.task('javascript:test', () =>
       }
 
     }))
-    .pipe(cover.gather())
-    .pipe(cover.format())
-    .pipe(gulp.dest('reports'))
 );
 
 gulp.task('jasmine:test', ['javascript:test'], function() {
-  gulp.watch('app/scripts/**/**.js', ['javascript:test']);
+  gulp.watch(['app/scripts/**/**.js', 'test/spec/**/**'], ['javascript:test']);
+});
+
+gulp.task('karma:test', function (done) {
+  return new Server({
+    configFile: __dirname + '/karma.conf.js'
+  }, done).start();
 });
