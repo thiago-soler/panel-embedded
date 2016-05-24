@@ -191,47 +191,47 @@ gulp.task('default', ['clean'], () => {
 });
 
 
-gulp.task('javascript:test', () =>
-  gulp.src('test/spec/**/**.js')
-    .pipe(jasmine({
-      reporter: {
+// gulp.task('javascript:test', () =>
+//   gulp.src('test/spec/**/**.js')
+//     .pipe(jasmine({
+//       reporter: {
 
-        jasmineStarted: function(suiteInfo) {
+//         jasmineStarted: function(suiteInfo) {
 
-          console.info(' ');
-          console.info(' ' + logSymbols.info + ' Iniciando testes unitários (Total de specs: ' + suiteInfo.totalSpecsDefined + ')');
-          console.info(' ');
+//           console.info(' ');
+//           console.info(' ' + logSymbols.info + ' Iniciando testes unitários (Total de specs: ' + suiteInfo.totalSpecsDefined + ')');
+//           console.info(' ');
 
-        },
+//         },
 
-        specDone: function(result) {
+//         specDone: function(result) {
         
-          if (result.status === 'passed'){
+//           if (result.status === 'passed'){
             
-            console.log(' ' + logSymbols.success + ' ' + result.description);
+//             console.log(' ' + logSymbols.success + ' ' + result.description);
 
-          }
+//           }
         
-          for(var i = 0; i < result.failedExpectations.length; i++) {
+//           for(var i = 0; i < result.failedExpectations.length; i++) {
           
-            console.log(' ' + logSymbols.error + ' ' + result.failedExpectations[i].message);
+//             console.log(' ' + logSymbols.error + ' ' + result.failedExpectations[i].message);
 
-          }
+//           }
           
-        },
+//         },
 
-        suiteDone: function(result) {
+//         suiteDone: function(result) {
           
-          console.info(' ');
-          console.info(' ' + logSymbols.info + ' Fim dos testes');
-          console.info(' ');
+//           console.info(' ');
+//           console.info(' ' + logSymbols.info + ' Fim dos testes');
+//           console.info(' ');
 
-        }
+//         }
 
-      }
+//       }
 
-    }))
-);
+//     }))
+// );
 
 gulp.task('jasmine:test', ['javascript:test'], function() {
   gulp.watch(['app/scripts/**/**.js', 'test/spec/**/**'], ['javascript:test']);
@@ -241,4 +241,11 @@ gulp.task('karma:test', function (done) {
   return new Server({
     configFile: __dirname + '/karma.conf.js'
   }, done).start();
+});
+
+var jsdoc = require('gulp-jsdoc3');
+
+gulp.task('doc', function (cb) {
+    gulp.src(['README.md', 'app/scripts/**/**.js'], {read: false})
+        .pipe(jsdoc(cb));
 });

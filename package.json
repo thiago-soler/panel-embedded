@@ -19,6 +19,7 @@
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.2.1",
     "gulp-jasmine": "^2.3.0",
+    "gulp-jsdoc3": "^0.2.1",
     "gulp-load-plugins": "^0.10.0",
     "gulp-plumber": "^1.0.1",
     "gulp-sass": "^2.0.0",
@@ -35,6 +36,7 @@
     "karma-spec-reporter": "0.0.26",
     "log-symbols": "^1.0.2",
     "main-bower-files": "^2.5.0",
+    "phantomjs-prebuilt": "^2.1.7",
     "wiredep": "^2.2.2"
   },
   "eslintConfig": {
