@@ -243,9 +243,16 @@ gulp.task('karma:test', function (done) {
   }, done).start();
 });
 
-var jsdoc = require('gulp-jsdoc3');
-
 gulp.task('doc', function (cb) {
-    gulp.src(['README.md', 'app/scripts/**/**.js'], {read: false})
-        .pipe(jsdoc(cb));
+
+  let jsdoc = require('gulp-jsdoc3');
+  
+  let config = require('./jsdocConfig');
+  
+  gulp.src(['README.md'].concat('app/scripts/**/**.js'), {read: false})
+    .pipe(jsdoc(cb));
+  
+  // gulp.src(['README.md', 'app/scripts/**/**.js'], {read: false})
+  //   .pipe(jsdoc(cb));
+    
 });

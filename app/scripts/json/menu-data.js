@@ -1,4 +1,4 @@
-teste({
+// teste({
 
-	'soler': true
-});
+// 	'soler': true
+// });

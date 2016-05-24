@@ -1,13 +1,23 @@
 'use strict';
 
-// uh.js - START
-( function ( window, document, undefined ) {
+( function ( window ) {
 
-    var uh = window.uh || {teste:true};
+	function Uh () {
 
+		return {};
+
+	}
+
+	/** @namespace uh */
+    var uh = new Uh();
     window.uh = uh;
 
-    return window.uh;
+    return;
 
-} )( window, document ); 
-// uh.js - END
+} )( window );
+
+
+// /** @namespace */
+// var chat = {
+    
+// };
