@@ -256,3 +256,18 @@ gulp.task('doc', function (cb) {
   //   .pipe(jsdoc(cb));
     
 });
+
+gulp.task("typedoc", function() {
+
+    let typedoc = require('gulp-typedoc');
+
+    return gulp
+        .src(["app/scripts/**/**.js"])
+        .pipe(typedoc({
+            module: "commonjs",
+            target: "es5",
+            out: "docs/",
+            name: "My project title"
+        }))
+    ;
+});
