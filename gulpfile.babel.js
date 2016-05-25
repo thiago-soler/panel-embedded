@@ -246,28 +246,10 @@ gulp.task('karma:test', function (done) {
 gulp.task('doc', function (cb) {
 
   let jsdoc = require('gulp-jsdoc3');
-  
-  let config = require('./jsdocConfig');
-  
-  gulp.src(['README.md'].concat('app/scripts/**/**.js'), {read: false})
-    .pipe(jsdoc(cb));
-  
-  // gulp.src(['README.md', 'app/scripts/**/**.js'], {read: false})
-  //   .pipe(jsdoc(cb));
+  let config = require('./jsdoc.json');
+
+  gulp.src(['README.md', 'app/scripts/**/**.js'], {read: false})
+      .pipe(jsdoc(config, cb));
     
 });
 
-gulp.task("typedoc", function() {
-
-    let typedoc = require('gulp-typedoc');
-
-    return gulp
-        .src(["app/scripts/**/**.js"])
-        .pipe(typedoc({
-            module: "commonjs",
-            target: "es5",
-            out: "docs/",
-            name: "My project title"
-        }))
-    ;
-});
