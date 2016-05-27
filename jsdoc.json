@@ -1,12 +1,11 @@
 {
   "opts": {
-    "destination": "./docs/gen"
+  	"destination": "./docs", 
+    "template": "./node_modules/jaguarjs-jsdoc"
   },
   "templates": {
-    "default": {
-      "outputSourceFiles": true
-    },
-    "path": "ink-docstrap",
-    "theme": "journal"
-  }
+        "default": {
+            "layoutFile": "./node_modules/jaguarjs-jsdoc"
+        }
+    }
 }

@@ -2,22 +2,16 @@
 
 ( function ( window ) {
 
-	function Uh () {
+    function Panel () {
 
-		return {};
+        return {};
 
-	}
+    }
 
-	/** @namespace uh */
-    var uh = new Uh();
-    window.uh = uh;
+    var panel = new Panel();
+    /** @namespace PANEL */
+    window.PANEL = panel;
 
     return;
 
 } )( window );
-
-
-// /** @namespace */
-// var chat = {
-    
-// };
