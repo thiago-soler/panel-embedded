@@ -1,17 +1,26 @@
 'use strict';
 
-( function ( window ) {
+function _Panel () {}
 
-    function Panel () {
+_Panel.prototype.type = function () {
 
-        return {};
+	return 'Namespace';
 
-    }
+};
 
-    var panel = new Panel();
-    /** @namespace PANEL */
-    window.PANEL = panel;
+/** @namespace */
+var PANEL = new _Panel();
 
-    return;
 
-} )( window );
+function _Loader () {}
+
+_Loader.prototype = new _Panel();
+_Loader.prototype.constructor = _Loader;
+
+_Loader.prototype.start = function () {
+
+	return 'start';
+
+};
+
+PANEL.loader = new _Loader();
